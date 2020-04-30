@@ -6,9 +6,9 @@
 }
 /*Container*/
 .container {
-  margin: 36px auto;
+  margin: 20px auto;
   width: 100%;
-  max-width: 800px;
+  /*max-width: 800px;*/
 }
 .search-label {
   position: relative;

@@ -5,11 +5,16 @@ import Button from "react-bootstrap/Button";
 
 function Profile(props) {
   return (
-    <div className="col-sm-12 col-md-6 col-lg-4 mt-4">
+    <div className="col-sm-12 col-md-6 col-lg-3 mt-4">
       <Accordion defaultActiveKey="1">
-        <div className="card">
+        <div className="card card-main">
           <Accordion.Toggle as={Button} variant="link" eventKey="0">
-            <h4 className="card-title mt-3">{props.names[0].name}</h4>
+            <div className="meta">
+              <h5>
+                {props.city}<br/>
+                {props.age} ans
+              </h5>
+            </div>
           </Accordion.Toggle>
           <Accordion.Collapse eventKey="0">
             <div>
@@ -23,15 +28,9 @@ function Profile(props) {
                 {props.names.map((name) => (
                   <h4 className="card-title mt-3">{name.name}</h4>
                 ))}
-                <div className="meta">
-                  <h5>
-                    {props.city}, {props.age} ans
-                  </h5>
-                </div>
               </div>
             </div>
           </Accordion.Collapse>
-          <div className="card-footer"></div>
         </div>
       </Accordion>
     </div>

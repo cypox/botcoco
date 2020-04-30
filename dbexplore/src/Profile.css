@@ -9,8 +9,7 @@ h4 {
   color: #e83910;
 }
 
-.card {
-  //min-height: 360px;
+.card, .card-main {
   font-size: 1em;
   overflow: hidden;
   padding: 0;
@@ -118,4 +117,18 @@ h4 {
 }
 .card-footer .icon a {
   color: #ef6645;
+}
+
+.btn-link {
+  padding: 10px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.btn-link:hover, .btn-link:active, .btn-link:visited, .btn-link:link, .btn-link:focus {
+  text-decoration: none;
+}
+
+.btn-link:hover {
+  background-color: lightgray;
 }
