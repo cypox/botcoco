@@ -1,0 +1,90 @@
+Amiens:Hauts-de-France
+Annemasse:Auvergne-Rhône-Alpe
+Auzouer-en-touraine:Centre-Val de Loire
+Bazouges-la-perouse:Bretagne
+Bonnieres-sur-seine:Île-de-France
+Chatellerault:Nouvelle-Aquitaine
+Chuzelles:Auvergne-Rhône-Alpes
+Domont:Île-de-France
+Fourmies:Hauts-de-France
+Le Pallet:Pays de la Loire
+Lille:Hauts-de-France
+Marseille:Provence-Alpes-Côte
+Morteau:Bourgogne-Franche-Comté
+Nantes:Pays de la Loire
+Pontault:Île-de-France
+Raches:Hauts-de-France
+Strasbourg:Grand Est
+Tinchebray:Basse-Normandie
+Toulouse:Occitanie
+Tourcoing:Hauts-de-France
+Troyes:Grand Est
+Villefranche-sur-saone:Auvergne-Rhône-Alpes
+Forges-les-bains:Île-de-France
+Montmagny:Île-de-France
+Roubaix:Hauts-de-France
+Montevrain:Île-de-France
+Rehon:Grand Est
+Reze:Pays de la Loire
+Mont-saint-aignan:Normandie
+Mareau-aux-pres:Centre-Val de Loire
+Lyon:Auvergne-Rhône-Alpes
+Le Haillan:Nouvelle-Aquitaine
+Antibes:Provence-Alpes-Côte
+Marines:Île-de-France
+Saujon:Nouvelle-Aquitaine
+Saint-pierre-les-elbeuf:Normandie
+Fleurville:Bourgogne-Franche-Comté
+Verneuil-l etang:Île-de-France
+Les Mureaux:Île-de-France
+Evreux:Normandie
+Nans-les-pins:Provence-Alpes-Côte d'Azur
+Auterrive:Nouvelle-Aquitaine
+Luxe:Nouvelle-Aquitaine
+Grande-synthe:Hauts-de-France
+Le Havre:Normandie
+Caudry:Hauts-de-France
+Rennes:Bretagne
+Frontonas:Auvergne-Rhône-Alpes
+Bordeaux:Nouvelle-Aquitaine
+Ancone:Auvergne-Rhône-Alpes
+Rive-de-gier:Auvergne-Rhône-Alpes
+Le Perreux:Île-de-France
+Saint-peray:Auvergne-Rhône-Alpes
+Reims:Grand Est
+Guipry:Bretagne
+Castanet-tolosan:Occitanie
+Echire:Nouvelle-Aquitaine
+Sechilienne:Auvergne-Rhône-Alpes
+Chamalieres:Auvergne-Rhône-Alpes
+Clermont-ferrand:Auvergne-Rhône-Alpes
+Amilly:Centre-Val de Loire
+Martigues:Provence-Alpes-Côte d’Azur
+Etoges:Grand Est
+Chambray-les-tours:Centre-Val de Loire
+Aurillac:Auvergne-Rhône-Alpe
+Chavagneux:Auvergne-Rhône-Alpes
+Javene:Bretagne
+Herblay:Île-de-France
+Tassin-la-demi-lune:Auvergne-Rhône-Alpes
+Schiltigheim:Grand Est
+La Penne:Provence-Alpes-Côte d'Azur
+Soissons:Hauts-de-France
+Chartres:Centre-Val de Loire
+Voujeaucourt:Bourgogne-Franche-Comté
+Etrat:Auvergne-Rhône-Alpes
+Champs-sur-marne:Île-de-France 
+Sains-en-gohelle:Hauts-de-France
+Pau:Nouvelle-Aquitaine
+Lezignan-corbieres:Occitanie
+Argenton-sur-creuse:Centre-Val de Loire
+Essuiles:Hauts-de-France
+Harnes:Hauts-de-France
+Villeurbanne:Auvergne-Rhône-Alpes
+Meneac:Bretagne
+Arbois:Bourgogne-Franche-Comté
+Mionnay:Auvergne-Rhône-Alpes
+Esclanedes:Occitanie
+Cahors:Occitanie
+Saint-leonard-de-noblat:Haute-Vienne
+Loos:Hauts-de-France
