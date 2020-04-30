@@ -66,16 +66,6 @@ emmintrin.h
 intrin.h
 -
 
-/home/miloslav/botcoco/dbbackend/database.cpp
-experimental/filesystem
--
-fstream
--
-regex
--
-database.h
-/home/miloslav/botcoco/dbbackend/database.h
-
 /home/miloslav/botcoco/dbbackend/database.h
 sstream
 -

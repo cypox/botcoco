@@ -10,6 +10,7 @@ h4 {
 }
 
 .card {
+  //min-height: 360px;
   font-size: 1em;
   overflow: hidden;
   padding: 0;
@@ -19,7 +20,7 @@ h4 {
 }
 
 .card-block {
-  font-size: 1em;
+  font-size: 1.2em;
   position: relative;
   margin: 0;
   padding: 1em;
@@ -51,7 +52,7 @@ h4 {
   position: static;
   top: 0;
   left: 0;
-  max-width: 100%;
+  max-width: 20px;
 
   color: rgba(0, 0, 0, 0.4);
   border-top: 1px solid rgba(0, 0, 0, 0.05) !important;

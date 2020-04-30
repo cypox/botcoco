@@ -60,13 +60,14 @@ int main()
     resp_text = x.json(db.getZipCodes());
 
     *response << "HTTP/1.1 200 OK\r\n"
-              << "Content-Length: " << resp_text.length() << "\r\n\r\n"
+              << "Content-Length: " << resp_text.length() << "\r\n"
+              << "Access-Control-Allow-Origin: *"
+              << "\r\n"
+              << "\r\n"
               << resp_text;
   };
 
-  // ^\/find\/\?(((uid)|(city))=([0-9])+)(&(((uid)|(city))=([0-9])+))+ for /find/?uid=342&city=342
   server.resource["^/pseudo/([a-zA-Z0-9]+)"]["GET"] = [&db](shared_ptr<HttpServer::Response> response, shared_ptr<HttpServer::Request> request) {
-    // std::string req = request->content.string(); // can be used with -d option in curl (curl -X GET -d 'something' link:port)
     std::string name = request->path_match[1];
     std::vector<User> x = db.findByName(name);
     string resp_text;
@@ -77,66 +78,71 @@ int main()
     {
       ss << u.json(db.getZipCodes()) << ",";
     }
-    ss.seekp(-1, ss.cur); // to remove the last ','
+    if (!x.empty())
+      ss.seekp(-1, ss.cur); // to remove the last ','
     ss << "]}";
     resp_text = ss.str();
 
     *response << "HTTP/1.1 200 OK\r\n"
-              << "Content-Length: " << resp_text.length() << "\r\n\r\n"
+              << "Content-Length: " << resp_text.length() << "\r\n"
+              << "Access-Control-Allow-Origin: *"
+              << "\r\n"
+              << "\r\n"
               << resp_text;
   };
 
-  // ^\/find\/\?(((uid)|(city))=([0-9])+)(&(((uid)|(city))=([0-9])+))+ for /find/?uid=342&city=342
   server.resource["^/([0-9]{6}-[0-9]{3}\\.jpg)"]["GET"] = [&avatar_folder](shared_ptr<HttpServer::Response> response, shared_ptr<HttpServer::Request> request) {
-    // std::string req = request->content.string(); // can be used with -d option in curl (curl -X GET -d 'something' link:port)
     std::string avatar_name = request->path_match[1];
-    auto avatars_root_path = boost::filesystem::canonical(avatar_folder);
-    auto path = boost::filesystem::canonical(avatars_root_path / avatar_name);
-
-    SimpleWeb::CaseInsensitiveMultimap header;
-
-    // Uncomment the following line to enable Cache-Control
-    // header.emplace("Cache-Control", "max-age=86400");
-
-    auto ifs = make_shared<ifstream>();
-    ifs->open(path.string(), ifstream::in | ios::binary | ios::ate);
-
-    if (*ifs)
+    try
     {
-      auto length = ifs->tellg();
-      ifs->seekg(0, ios::beg);
+      auto avatars_root_path = boost::filesystem::canonical(avatar_folder);
+      auto path = boost::filesystem::canonical(avatars_root_path / avatar_name);
 
-      header.emplace("Content-Length", to_string(length));
-      response->write(header);
+      SimpleWeb::CaseInsensitiveMultimap header;
 
-      // Trick to define a recursive function within this scope (for example purposes)
-      class FileServer
+      auto ifs = make_shared<ifstream>();
+      ifs->open(path.string(), ifstream::in | ios::binary | ios::ate);
+
+      if (*ifs)
       {
-      public:
-        static void read_and_send(const shared_ptr<HttpServer::Response> &response, const shared_ptr<ifstream> &ifs)
+        auto length = ifs->tellg();
+        ifs->seekg(0, ios::beg);
+
+        header.emplace("Content-Length", to_string(length));
+        header.emplace("Access-Control-Allow-Origin", "*");
+        response->write(header);
+
+        class FileServer
         {
-          // Read and send 128 KB at a time
-          static vector<char> buffer(131072); // Safe when server is running on one thread
-          streamsize read_length;
-          if ((read_length = ifs->read(&buffer[0], static_cast<streamsize>(buffer.size())).gcount()) > 0)
+        public:
+          static void read_and_send(const shared_ptr<HttpServer::Response> &response, const shared_ptr<ifstream> &ifs)
           {
-            response->write(&buffer[0], read_length);
-            if (read_length == static_cast<streamsize>(buffer.size()))
+            static vector<char> buffer(131072);
+            streamsize read_length;
+            if ((read_length = ifs->read(&buffer[0], static_cast<streamsize>(buffer.size())).gcount()) > 0)
             {
-              response->send([response, ifs](const SimpleWeb::error_code &ec) {
-                if (!ec)
-                  read_and_send(response, ifs);
-                else
-                  cerr << "Connection interrupted" << endl;
-              });
+              response->write(&buffer[0], read_length);
+              if (read_length == static_cast<streamsize>(buffer.size()))
+              {
+                response->send([response, ifs](const SimpleWeb::error_code &ec) {
+                  if (!ec)
+                    read_and_send(response, ifs);
+                  else
+                    cerr << "Connection interrupted" << endl;
+                });
+              }
             }
           }
-        }
-      };
-      FileServer::read_and_send(response, ifs);
+        };
+        FileServer::read_and_send(response, ifs);
+      }
+      else
+        throw invalid_argument("could not read file");
     }
-    else
-      throw invalid_argument("could not read file");
+    catch (const exception &e)
+    {
+      response->write(SimpleWeb::StatusCode::client_error_bad_request, "Could not open path " + avatar_name);
+    }
   };
 
   /*

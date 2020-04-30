@@ -1,21 +1,16 @@
 import React from "react";
 import Profile from "./Profile";
-import Button from "react-bootstrap/Button";
 
 const UserList = ({ contacts }) => {
   return (
-    <div class="container">
-      <div class="row">
+    <div className="container">
+      <div className="row">
         {contacts.map((contact) => (
-          <Profile
-            name={contact.name}
-            age={contact.email}
-            city={contact.address.city}
-          />
+          <Profile key={contact.id} names={contact.pseudos} age={contact.age} city={contact.city} avatars={contact.avatars} />
         ))}
       </div>
     </div>
-  )
+  );
 };
 
 export default UserList;

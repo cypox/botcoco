@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import "./Search.css";
+import UserList from "./UserList";
 
 class Search extends React.Component {
   constructor(props) {
@@ -22,8 +23,7 @@ class Search extends React.Component {
 
   fetchSearchResults = (updatedPageNo = "", query) => {
     const pageNumber = updatedPageNo ? `&page=${updatedPageNo}` : "";
-    // By default the limit of results is 20
-    const searchUrl = `https://pixabay.com/api/?key=12413278-79b713c7e196c7a3defb5330e&q=${query}${pageNumber}`;
+    const searchUrl = `http://127.0.0.1:8080/pseudo/${query}`;
     if (this.cancel) {
       // Cancel the previous request before making a new request
       this.cancel.cancel();
@@ -35,11 +35,11 @@ class Search extends React.Component {
         cancelToken: this.cancel.token,
       })
       .then((res) => {
-        const resultNotFoundMsg = !res.data.hits.length
+        const resultNotFoundMsg = !res.data.users.length
           ? "There are no more search results. Please try a new search."
           : "";
         this.setState({
-          results: res.data.hits,
+          results: res.data.users,
           message: resultNotFoundMsg,
           loading: false,
         });
@@ -54,7 +54,7 @@ class Search extends React.Component {
       });
   };
 
-  renderSearchResults = () => {
+  renderSearchResults_old = () => {
     const { results } = this.state;
     if (Object.keys(results).length && results.length) {
       return (
@@ -63,21 +63,30 @@ class Search extends React.Component {
             return (
               <a
                 key={result.id}
-                href={result.previewURL}
+                href={result.id}
                 className="result-items"
               >
-                <h6 className="image-username">{result.user}</h6>
+                <h6 className="image-username">{result.pseudos[0].name}</h6>
                 <div className="image-wrapper">
                   <img
                     className="image"
-                    src={result.previewURL}
-                    alt={result.user}
+                    src={'http://127.0.0.1:8080/'+result.id+'-000.jpg'}
+                    alt={result.id}
                   />
                 </div>
               </a>
             );
           })}
         </div>
+      );
+    }
+  };
+
+  renderSearchResults = () => {
+    const { results } = this.state;
+    if (Object.keys(results).length && results.length) {
+      return (
+        <UserList contacts={results}/>
       );
     }
   };
