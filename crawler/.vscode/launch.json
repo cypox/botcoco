@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+      {
+          "type": "perl",
+          "request": "launch",
+          "console": "integratedTerminal",
+          "program": "C:/Strawberry/perl/bin/perl.exe",
+          "execArgs": [],
+          "name": "Perl Debug",
+          "root": "${workspaceRoot}",
+          "inc": [],
+          "args": [],
+          "stopOnEntry": true
+      }
+  ]
+}
