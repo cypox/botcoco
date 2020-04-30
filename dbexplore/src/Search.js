@@ -23,7 +23,7 @@ class Search extends React.Component {
 
   fetchSearchResults = (updatedPageNo = "", query) => {
     const pageNumber = updatedPageNo ? `&page=${updatedPageNo}` : "";
-    const searchUrl = `http://127.0.0.1:8080/pseudo/${query}`;
+    const searchUrl = `http://127.0.0.1:8080/query/${query}`;
     if (this.cancel) {
       // Cancel the previous request before making a new request
       this.cancel.cancel();
@@ -119,7 +119,7 @@ class Search extends React.Component {
 
   handleOnInputChange = (event) => {
     const query = event.target.value;
-    if (!query) {
+    if (!query || query.length < 3) {
       this.setState({ query, results: {}, message: "" });
     } else {
       this.setState({ query, loading: true, message: "" }, () => {

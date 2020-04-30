@@ -6,7 +6,7 @@ const UserList = ({ contacts }) => {
     <div className="container">
       <div className="row">
         {contacts.map((contact) => (
-          <Profile key={contact.id} names={contact.pseudos} age={contact.age} city={contact.city} avatars={contact.avatars} />
+          <Profile names={contact.pseudos} age={contact.age} city={contact.city} avatars={contact.avatars} />
         ))}
       </div>
     </div>

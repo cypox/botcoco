@@ -91,6 +91,30 @@ int main()
               << resp_text;
   };
 
+  server.resource["^/query/([a-zA-Z0-9]+)"]["GET"] = [&db](shared_ptr<HttpServer::Response> response, shared_ptr<HttpServer::Request> request) {
+    std::string name = request->path_match[1];
+    std::vector<User*> x = db.query(name);
+    string resp_text;
+
+    std::stringstream ss;
+    ss << "{\"total\":" << x.size() << ",\"users\":[";
+    for (User* u : x)
+    {
+      ss << u->json(db.getZipCodes()) << ",";
+    }
+    if (!x.empty())
+      ss.seekp(-1, ss.cur); // to remove the last ','
+    ss << "]}";
+    resp_text = ss.str();
+
+    *response << "HTTP/1.1 200 OK\r\n"
+              << "Content-Length: " << resp_text.length() << "\r\n"
+              << "Access-Control-Allow-Origin: *"
+              << "\r\n"
+              << "\r\n"
+              << resp_text;
+  };
+
   server.resource["^/([0-9]{6}-[0-9]{3}\\.jpg)"]["GET"] = [&avatar_folder](shared_ptr<HttpServer::Response> response, shared_ptr<HttpServer::Request> request) {
     std::string avatar_name = request->path_match[1];
     try
