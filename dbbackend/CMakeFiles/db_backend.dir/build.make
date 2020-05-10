@@ -43,10 +43,10 @@ RM = /usr/local/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/miloslav/botcoco/dbbackend
+CMAKE_SOURCE_DIR = /home/cwc-work/bot/botcoco/dbbackend
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/miloslav/botcoco/dbbackend
+CMAKE_BINARY_DIR = /home/cwc-work/bot/botcoco/dbbackend
 
 # Include any dependencies generated for this target.
 include CMakeFiles/db_backend.dir/depend.make
@@ -59,29 +59,29 @@ include CMakeFiles/db_backend.dir/flags.make
 
 CMakeFiles/db_backend.dir/db_backend.cpp.o: CMakeFiles/db_backend.dir/flags.make
 CMakeFiles/db_backend.dir/db_backend.cpp.o: db_backend.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/miloslav/botcoco/dbbackend/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/db_backend.dir/db_backend.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/db_backend.dir/db_backend.cpp.o -c /home/miloslav/botcoco/dbbackend/db_backend.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cwc-work/bot/botcoco/dbbackend/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/db_backend.dir/db_backend.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/db_backend.dir/db_backend.cpp.o -c /home/cwc-work/bot/botcoco/dbbackend/db_backend.cpp
 
 CMakeFiles/db_backend.dir/db_backend.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/db_backend.dir/db_backend.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/miloslav/botcoco/dbbackend/db_backend.cpp > CMakeFiles/db_backend.dir/db_backend.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cwc-work/bot/botcoco/dbbackend/db_backend.cpp > CMakeFiles/db_backend.dir/db_backend.cpp.i
 
 CMakeFiles/db_backend.dir/db_backend.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/db_backend.dir/db_backend.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/miloslav/botcoco/dbbackend/db_backend.cpp -o CMakeFiles/db_backend.dir/db_backend.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cwc-work/bot/botcoco/dbbackend/db_backend.cpp -o CMakeFiles/db_backend.dir/db_backend.cpp.s
 
 CMakeFiles/db_backend.dir/database.cpp.o: CMakeFiles/db_backend.dir/flags.make
 CMakeFiles/db_backend.dir/database.cpp.o: database.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/miloslav/botcoco/dbbackend/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/db_backend.dir/database.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/db_backend.dir/database.cpp.o -c /home/miloslav/botcoco/dbbackend/database.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cwc-work/bot/botcoco/dbbackend/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/db_backend.dir/database.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/db_backend.dir/database.cpp.o -c /home/cwc-work/bot/botcoco/dbbackend/database.cpp
 
 CMakeFiles/db_backend.dir/database.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/db_backend.dir/database.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/miloslav/botcoco/dbbackend/database.cpp > CMakeFiles/db_backend.dir/database.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cwc-work/bot/botcoco/dbbackend/database.cpp > CMakeFiles/db_backend.dir/database.cpp.i
 
 CMakeFiles/db_backend.dir/database.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/db_backend.dir/database.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/miloslav/botcoco/dbbackend/database.cpp -o CMakeFiles/db_backend.dir/database.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cwc-work/bot/botcoco/dbbackend/database.cpp -o CMakeFiles/db_backend.dir/database.cpp.s
 
 # Object files for target db_backend
 db_backend_OBJECTS = \
@@ -101,7 +101,7 @@ db_backend: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
 db_backend: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
 db_backend: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
 db_backend: CMakeFiles/db_backend.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/miloslav/botcoco/dbbackend/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable db_backend"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cwc-work/bot/botcoco/dbbackend/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable db_backend"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/db_backend.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -114,6 +114,6 @@ CMakeFiles/db_backend.dir/clean:
 .PHONY : CMakeFiles/db_backend.dir/clean
 
 CMakeFiles/db_backend.dir/depend:
-	cd /home/miloslav/botcoco/dbbackend && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/miloslav/botcoco/dbbackend /home/miloslav/botcoco/dbbackend /home/miloslav/botcoco/dbbackend /home/miloslav/botcoco/dbbackend /home/miloslav/botcoco/dbbackend/CMakeFiles/db_backend.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cwc-work/bot/botcoco/dbbackend && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cwc-work/bot/botcoco/dbbackend /home/cwc-work/bot/botcoco/dbbackend /home/cwc-work/bot/botcoco/dbbackend /home/cwc-work/bot/botcoco/dbbackend /home/cwc-work/bot/botcoco/dbbackend/CMakeFiles/db_backend.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/db_backend.dir/depend
 

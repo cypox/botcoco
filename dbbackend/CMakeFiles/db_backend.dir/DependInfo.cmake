@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/miloslav/botcoco/dbbackend/database.cpp" "/home/miloslav/botcoco/dbbackend/CMakeFiles/db_backend.dir/database.cpp.o"
-  "/home/miloslav/botcoco/dbbackend/db_backend.cpp" "/home/miloslav/botcoco/dbbackend/CMakeFiles/db_backend.dir/db_backend.cpp.o"
+  "/home/cwc-work/bot/botcoco/dbbackend/database.cpp" "/home/cwc-work/bot/botcoco/dbbackend/CMakeFiles/db_backend.dir/database.cpp.o"
+  "/home/cwc-work/bot/botcoco/dbbackend/db_backend.cpp" "/home/cwc-work/bot/botcoco/dbbackend/CMakeFiles/db_backend.dir/db_backend.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

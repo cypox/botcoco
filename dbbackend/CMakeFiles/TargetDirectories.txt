@@ -1,3 +1,3 @@
-/home/miloslav/botcoco/dbbackend/CMakeFiles/rebuild_cache.dir
-/home/miloslav/botcoco/dbbackend/CMakeFiles/db_backend.dir
-/home/miloslav/botcoco/dbbackend/CMakeFiles/edit_cache.dir
+/home/cwc-work/bot/botcoco/dbbackend/CMakeFiles/rebuild_cache.dir
+/home/cwc-work/bot/botcoco/dbbackend/CMakeFiles/db_backend.dir
+/home/cwc-work/bot/botcoco/dbbackend/CMakeFiles/edit_cache.dir

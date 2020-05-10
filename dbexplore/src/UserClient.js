@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import UserList from "./UserList";
 
+// THIS IS NOT USED NOW
+
 class UserClient extends Component {
   state = {
     contacts: []

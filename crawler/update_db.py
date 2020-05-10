@@ -158,7 +158,7 @@ class person_db:
         return i
     return -1
 
-command_line = '/home/miloslav/botcoco/cocoweb/cocoweb.pl -s W -a list'
+command_line = '/home/cwc-work/bot/botcoco/cocoweb/cocoweb.pl -s W -a list'
 
 db_file = 'users_db'
 

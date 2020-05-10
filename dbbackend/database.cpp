@@ -72,8 +72,23 @@ int Database::loadAvatars(std::string avatars_folder)
   return len;
 }
 
-void Database::reload()
+void Database::reload(std::string db_file)
 {
+  db_users.clear();
+  inverse_db_users.clear();
+  std::ifstream f(db_file.c_str());
+  std::string line;
+  while (std::getline(f, line))
+  {
+    User u(line);
+    db_users[u.getUid()] = u;
+    auto names = u.getNames();
+    for (auto p : names)
+    {
+      inverse_db_users.insert(std::make_pair(p, u.getUid()));
+    }
+  }
+  f.close();
 }
 
 User Database::findById(int uid)
