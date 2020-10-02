@@ -1,4 +1,4 @@
-# Install script for directory: /home/miloslav/botcoco/dbbackend
+# Install script for directory: /home/cwc-work/bot/botcoco/dbbackend
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/miloslav/botcoco/dbbackend/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/cwc-work/bot/botcoco/dbbackend/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

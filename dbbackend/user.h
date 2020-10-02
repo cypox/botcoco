@@ -11,6 +11,14 @@ public:
     std::istringstream f(pseudo_line);
     std::string s;
     std::getline(f, s, '|');
+
+    size_t index = s.find("C3A7");
+    if (index != std::string::npos)
+      s.replace(index, 4, "ç");
+    index = s.find("C3A9");
+    if (index != std::string::npos)
+      s.replace(index, 4, "é");
+
     name = s;
     std::getline(f, s, '|');
     struct tm tm;

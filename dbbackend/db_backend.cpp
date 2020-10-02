@@ -18,9 +18,9 @@ using HttpServer = SimpleWeb::Server<SimpleWeb::HTTP>;
 int main()
 {
   cout << "Reading db file ..." << std::endl;
-  string db_file = "/home/miloslav/botcoco/dbbackend/users_dev";
-  string zip_codes = "/home/miloslav/botcoco/cocoweb/conf/zip-codes.txt";
-  string avatar_folder = "/home/miloslav/botcoco/crawler/avatars/";
+  string db_file = "/home/cwc-work/bot/botcoco/dbbackend/users_dev";
+  string zip_codes = "/home/cwc-work/bot/botcoco/cocoweb/conf/zip-codes.txt";
+  string avatar_folder = "/home/cwc-work/bot/botcoco/crawler/avatars/";
   Database db(db_file, zip_codes);
   cout << "Finished reading db" << std::endl;
   // std::cout << db.text() << std::endl;
@@ -47,6 +47,23 @@ int main()
       stream << field.first << ": " << field.second << "<br>";
 
     response->write(stream);
+  };
+
+  server.resource["^/update$"]["GET"] = [&db, &db_file, &avatar_folder](shared_ptr<HttpServer::Response> response, shared_ptr<HttpServer::Request> /* request */) {
+    thread work_thread([response, &db, db_file, avatar_folder] {
+      cout << "reloading database ..." << endl;
+      db.reload(db_file);
+      cout << "Contains: " << db.size() << std::endl;
+      int avs = db.loadAvatars(avatar_folder);
+      cout << "Loaded " << avs << " avatars" << std::endl;
+
+      *response << "HTTP/1.1 200 OK\r\n"
+                << "Content-Length: " << 0 << "\r\n"
+                << "Access-Control-Allow-Origin: *"
+                << "\r\n"
+                << "\r\n";
+    });
+    work_thread.detach();
   };
 
   // ^\/find\/\?(((uid)|(city))=([0-9])+)(&(((uid)|(city))=([0-9])+))+ for /find/?uid=342&city=342
@@ -93,12 +110,12 @@ int main()
 
   server.resource["^/query/([a-zA-Z0-9]+)"]["GET"] = [&db](shared_ptr<HttpServer::Response> response, shared_ptr<HttpServer::Request> request) {
     std::string name = request->path_match[1];
-    std::vector<User*> x = db.query(name);
+    std::vector<User *> x = db.query(name);
     string resp_text;
 
     std::stringstream ss;
     ss << "{\"total\":" << x.size() << ",\"users\":[";
-    for (User* u : x)
+    for (User *u : x)
     {
       ss << u->json(db.getZipCodes()) << ",";
     }

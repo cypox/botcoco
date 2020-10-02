@@ -10,7 +10,7 @@ public:
 
   Database(std::string, std::string);
 
-  void reload();
+  void reload(std::string);
 
   int size() const { return db_users.size(); }
 

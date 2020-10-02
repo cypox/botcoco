@@ -6,5 +6,5 @@ CXX_FLAGS =   -std=c++17 -Wall -Wextra -Wsign-conversion
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/miloslav/botcoco/dbbackend/SHTTP 
+CXX_INCLUDES = -I/home/cwc-work/bot/botcoco/dbbackend/SHTTP 
 
